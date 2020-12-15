@@ -60,7 +60,7 @@ public class Main {
             Scanner scanner_api = new Scanner(System.in);
             String api = scanner_api.nextLine();
             if (api.equals("ow") | api.equals("ws") | api.equals("wa")){
-                settings.setService(api);
+                settings.setSetting("service", api);
                 Messages.api_change_success_msg(settings);
                 return api;
             } else {
@@ -82,8 +82,9 @@ public class Main {
             } else if (settings.getService().equals("wa")) {
                 city_validation = new WeatherAPIParser(city).is_parse_successful();
             }
+            System.out.println(city_validation);
             if (city_validation) {
-                settings.setCity(city);
+                settings.setSetting("city", city);
                 Messages.city_change_success_msg(settings);
                 return city;
             } else {
@@ -98,7 +99,7 @@ public class Main {
             Scanner scanner_lang = new Scanner(System.in);
             String language = scanner_lang.nextLine();
             if (language.equals("en")){
-                settings.setLanguage(language);
+                settings.setSetting("language", language);
                 Messages.language_change_success_msg(settings);
                 return language;
             } else {

@@ -22,7 +22,7 @@ public class Messages {
             System.out.println(" ");
             System.out.println("- OpenWeather API = \"ow\"");
             System.out.println("- WeatherStack API = \"ws\"");
-            System.out.println("- Weather API = \"ws\"");
+            System.out.println("- Weather API = \"wa\"");
             System.out.println(" ");
             System.out.println("Enter required API: ");
         }

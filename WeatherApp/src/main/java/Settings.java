@@ -15,37 +15,17 @@ public class Settings {
         this.city = getJSON().getString("city");
     }
 
-    public void setService(String service) {
-        this.service = service;
-        try{
-            JSONObject settings = getJSON();
-            settings.put("service", service);
-            FileWriter fw = new FileWriter("src/main/java/settings.json");
-            fw.write(settings.toString());
-            fw.close();
-        } catch (Exception e) {
-            System.out.println(e);
+    public void setSetting(String setting, String value) {
+        if (setting.equals("service")) {
+            this.service = value;
+        } else if (setting.equals("city")) {
+            this.city = value;
+        } else if (setting.equals("language")) {
+            this.language = value;
         }
-    }
-
-    public void setLanguage (String language) {
-        this.language = language;
         try{
             JSONObject settings = getJSON();
-            settings.put("language", language);
-            FileWriter fw = new FileWriter("src/main/java/settings.json");
-            fw.write(settings.toString());
-            fw.close();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-    public void setCity (String city) {
-        this.city = city;
-        try{
-            JSONObject settings = getJSON();
-            settings.put("city", city);
+            settings.put(setting, value);
             FileWriter fw = new FileWriter("src/main/java/settings.json");
             fw.write(settings.toString());
             fw.close();
@@ -55,9 +35,9 @@ public class Settings {
     }
 
     public void drop() {
-        setCity("null");
-        setService("null");
-        setLanguage("en");
+        setSetting("city", "null");
+        setSetting("service", "null");
+        setSetting("language", "en");
     }
 
     private JSONObject getJSON() throws Exception {

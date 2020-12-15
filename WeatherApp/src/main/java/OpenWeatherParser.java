@@ -9,8 +9,9 @@ public class OpenWeatherParser extends Weather {
 
     public void parse (String city) {
         String url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=1f0a000a2de54a0110c5443c52f7819c";
+        String content = get_content(url);
         if (this.parse_successful) {
-            JSONObject json = new JSONObject(get_content(url));
+            JSONObject json = new JSONObject(content);
             this.last_city = city;
             this.current_weather = json.getJSONArray("weather").getJSONObject(0).getString("main");
             this.feels_like = Math.round(json.getJSONObject("main").getDouble("feels_like")) - 273;
