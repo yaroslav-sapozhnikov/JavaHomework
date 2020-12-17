@@ -53,6 +53,13 @@ public class Messages {
         }
     }
 
+    public static void valid_city_change_msg (Settings settings) {
+        System.out.println(" ");
+        if (settings.getLanguage().equals("en")) {
+            System.out.println("Please, enter valid city name: ");
+        }
+    }
+
     public static void city_change_success_msg (Settings settings) {
         System.out.println(" ");
         if (settings.getLanguage().equals("en")) {

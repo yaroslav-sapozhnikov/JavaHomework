@@ -82,13 +82,12 @@ public class Main {
             } else if (settings.getService().equals("wa")) {
                 city_validation = new WeatherAPIParser(city).is_parse_successful();
             }
-            System.out.println(city_validation);
             if (city_validation) {
                 settings.setSetting("city", city);
                 Messages.city_change_success_msg(settings);
                 return city;
             } else {
-                Messages.valid_change_msg(settings);
+                Messages.valid_city_change_msg(settings);
             }
         }
     }
